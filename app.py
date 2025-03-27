@@ -74,21 +74,8 @@ if uploaded_file:
     file_details = {"File Name": uploaded_file.name, "File Type": uploaded_file.type}
     st.write(file_details)
 
-# Voice Input
-recognizer = sr.Recognizer()
-if st.button("🎤 Speak"):
-    with sr.Microphone() as source:
-        st.info("Listening...")
-        audio = recognizer.listen(source)
-        try:
-            user_input = recognizer.recognize_google(audio)
-            st.success(f"You said: {user_input}")
-        except sr.UnknownValueError:
-            st.error("Sorry, I couldn't understand the audio.")
-        except sr.RequestError:
-            st.error("Could not request results, please check your internet connection.")
-else:
-    user_input = st.text_input("Type your message here...")
+# User text input (Voice input removed)
+user_input = st.text_input("Type your message here...")
 
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
