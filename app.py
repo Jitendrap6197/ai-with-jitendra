@@ -1,5 +1,4 @@
 import streamlit as st
-import speech_recognition as sr
 from ai_agent import get_groq_response, web_search
 import base64
 
